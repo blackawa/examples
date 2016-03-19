@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css">
+  <title>Usage of th:include and th:replace</title>
+</head>
+<body class="ui main container">
+<h1 class="ui center aligned header">th:replaceとth:includeの使い分け</h1>
+<h2 class="ui center aligned header">Summary</h2>
+<div class="ui segment">
+  <p>th:replaceは、共通化したいパーツが1つのタグにまとめられている時に使用できます。</p>
+  <p>一方でth:includeは、共通化したいパーツが複数個のタグの組み合わせで構成されている時に使用できます。</p>
+</div>
+<h3>th:replaceの例</h3>
+まず、ブログサイトの記事上部と下部に毎回同じソーシャルボタンを埋め込む場合を考えてみましょう。<br>
+この場合、共通化したい部品は一つのdivでまとめられたボタンのパーツなので、th:replaceを使用することができます。
+<div th:replace="common::replace"></div>
+<hr class="ui divider">
+<!-- awesome blog post -->
+<div th:replace="common::replace"></div>
+<h3>th:includeの例</h3>
+次に、同じメニューを複数箇所で出すことを考えてみましょう。<br>
+PC用は横並び、SP用は横並びで表示するというようなことはよくあるかと思います。<br>
+この場合メニューのアイテム群を共通化しておいて、親タグにつけた属性によって表示を切り替えたいですね。<br>
+このような時は複数個のタグを共通部品にしたいのでth:includeを使用すべきです。
+<div class="ui three item menu" th:include="common::include"></div>
+<hr class="ui divider">
+<div class="ui vertical menu" th:include="common::include"></div>
+</body>
+</html>

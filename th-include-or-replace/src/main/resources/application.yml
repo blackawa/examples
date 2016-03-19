@@ -1,0 +1,2 @@
+spring.thymeleaf.mode: LEGACYHTML5
+server.port: 9080

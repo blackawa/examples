@@ -1,0 +1,23 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>common</title>
+</head>
+<body>
+<div th:fragment="include">
+  <a href="#" class="active item">item 1</a>
+  <a href="#" class="item">item 2</a>
+  <a href="#" class="item">item 3</a>
+</div>
+<!--<div th:fragment="replace">-->
+<div class="ui container" th:fragment="replace">
+  <div class="ui buttons">
+    <button class="ui primary button">Save</button>
+    <div class="or"></div>
+    <button class="ui button">Cancel</button>
+  </div>
+</div>
+<!--</div>-->
+</body>
+</html>
