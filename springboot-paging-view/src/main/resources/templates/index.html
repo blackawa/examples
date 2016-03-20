@@ -1,0 +1,61 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css">
+  <title>Paging Examples</title>
+</head>
+<body class="ui main container">
+<h1 class="ui center aligned header">Sample Implementation of Paging View</h1>
+<p th:text="
+${paging.totalRecordNum} + '件中'
++ ${paging.fromRecordNum} + '～'
++ ${paging.toRecordNum} + '件表示中'">100件中1～10件表示中</p>
+<table class="ui celled striped table">
+  <thead>
+  <tr>
+    <th>MEMBER_ID</th>
+    <th>MEMBER_NAME</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="record : ${records}">
+    <td th:text="${record.memberId}">1</td>
+    <td th:text="${record.memberName}">hoge user</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <th colspan="2">
+      <div class="ui pagination small menu">
+        <a class="icon item"
+           th:classappend="!${paging.canGoFirst} ? 'disabled'"
+           th:href="${paging.firstHref}"><i class="angle double left icon"></i></a>
+        <a class="icon item"
+           th:classappend="!${paging.canGoPrevious} ? 'disabled'"
+           th:href="${paging.previousHref}"><i class="angle left icon"></i></a>
+        <a class="item"
+           th:each="element : ${paging.pagingViewElements}"
+           th:href="${element.href}"
+           th:text="${element.name}"
+           th:classappend="${element.name} == ${paging.currentPageNum} ? 'disabled'"
+        >1</a>
+        <!--/*-->
+        <a href="#" class="disabled item">2</a>
+        <a href="#" class="item">3</a>
+        <a href="#" class="item">4</a>
+        <a href="#" class="item">5</a>
+        <!--*/-->
+        <a href="#" class="icon item"
+           th:classappend="!${paging.canGoNext} ? 'disabled'"
+           th:href="${paging.nextHref}"><i class="angle right icon"></i></a>
+        <a class="icon item"
+           th:classappend="!${paging.canGoLast} ? 'disabled'"
+           th:href="${paging.lastHref}"><i class="angle double right icon"></i></a>
+      </div>
+    </th>
+  </tr>
+  </tfoot>
+</table>
+</body>
+</html>

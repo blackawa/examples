@@ -1,0 +1,8 @@
+server.port: 9080
+spring:
+  thymeleaf.mode: LEGACYHTML5
+#  datasource:
+#    url: jdbc:h2:~/springboot-paging-view
+#    username: sa
+#    password:
+#    driverClassName: org.h2.Driver
