@@ -1,1 +1,1 @@
-INSERT INTO `language` (`name`) VALUES ('japanese'), ('english'), ('spanish'), ('german'), ('chinese'), ('korean');
+INSERT INTO `language` (`name`) VALUES ('java'), ('kotlin'), ('groovy'), ('clojure'), ('scala'), ('eta-lang');

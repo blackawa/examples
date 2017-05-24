@@ -41,15 +41,17 @@ repositories {
 
 
 dependencies {
+	// spring boot
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
 	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+	runtime('org.springframework.boot:spring-boot-devtools')
+	// doma
 	compile('org.seasar.doma.boot:doma-spring-boot-starter:1.1.0')
 	compile('org.seasar.doma:doma:2.16.1')
 	kapt('org.seasar.doma:doma:2.16.1')
-	runtime('org.springframework.boot:spring-boot-devtools')
+	// h2
 	runtime('com.h2database:h2')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

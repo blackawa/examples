@@ -7,7 +7,7 @@ import org.seasar.doma.Id
 import org.seasar.doma.ParameterName
 
 @Entity(immutable = true)
-data class LanguageEntity(
+data class Language(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ParameterName("id")
