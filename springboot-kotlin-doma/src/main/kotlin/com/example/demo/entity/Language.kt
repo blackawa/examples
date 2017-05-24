@@ -10,10 +10,7 @@ import org.seasar.doma.ParameterName
 data class Language(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ParameterName("id")
     val id: Long,
-    @ParameterName("name")
     val name: String,
-    @ParameterName("platform")
     val platform: String?
 )

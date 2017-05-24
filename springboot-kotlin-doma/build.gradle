@@ -26,8 +26,12 @@ compileKotlin {
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
-// コンパイルより前にSQLファイルを出力先ディレクトリにコピーするために依存関係を逆転する
-compileJava.dependsOn processResources
+// コンパイルより前にSQLファイルを出力先ディレクトリにコピーする
+task copy(type: Copy) {
+    from sourceSets.main.resources
+    into compileJava.destinationDir
+}
+compileJava.dependsOn copy
 // SQLファイルなどリソースファイルの出力先ディレクトリをkaptに伝える
 kapt {
     arguments {
@@ -50,8 +54,7 @@ dependencies {
     runtime('org.springframework.boot:spring-boot-devtools')
     // doma
     compile('org.seasar.doma.boot:doma-spring-boot-starter:1.1.0')
-    compile('org.seasar.doma:doma:2.16.1')
-    kapt('org.seasar.doma:doma:2.16.1')
+    kapt('org.seasar.doma:doma:2.12.0')
     // h2
     runtime('com.h2database:h2')
 }
