@@ -14,5 +14,7 @@ class LanguageController(
     @Autowired private val languageRepository: LanguageRepository
 ) {
     @GetMapping("/languages")
-    fun show(): List<LanguageEntity> = languageRepository.findAll()
+    fun show(): List<LanguageEntity> {
+        return languageRepository.findAll()
+    }
 }
