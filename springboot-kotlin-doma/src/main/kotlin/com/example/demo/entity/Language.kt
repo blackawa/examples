@@ -13,5 +13,7 @@ data class Language(
     @ParameterName("id")
     val id: Long,
     @ParameterName("name")
-    val name: String
+    val name: String,
+    @ParameterName("platform")
+    val platform: String?
 )

@@ -1,1 +1,8 @@
-INSERT INTO `language` (`name`) VALUES ('java'), ('kotlin'), ('groovy'), ('clojure'), ('scala'), ('eta-lang');
+INSERT INTO `language` (`name`, `platform`)
+VALUES
+  ('java', 'jvm'),
+  ('kotlin', 'jvm'),
+  ('clojure', 'jvm'),
+  ('golang', null),
+  ('eta-lang', 'jvm'),
+  ('haskell', null);
