@@ -36,10 +36,6 @@ public class ContextPathProxyClient implements ProxyClient {
      * @return プロキシ先
      */
     public ProxyTarget findTarget(HttpServerExchange exchange) {
-        exchange.getRequestHeaders().put(new HttpString(""), "");
-        exchange.getRequestHeaders().get("X-Auth").contains("");
-        exchange.getRequestCookies().get("session").getValue();
-        exchange.getResponseHeaders().remove("");
         URI endpoint = contextPathPredicates.stream()
                 .filter(p -> p.matches(exchange.getRequestURI()))
                 .findFirst()
