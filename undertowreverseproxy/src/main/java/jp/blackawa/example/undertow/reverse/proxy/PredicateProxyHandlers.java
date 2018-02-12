@@ -7,6 +7,7 @@ import io.undertow.Undertow;
 import io.undertow.server.HttpHandler;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.server.ResponseCommitListener;
+import io.undertow.server.handlers.CookieImpl;
 import io.undertow.server.handlers.PathHandler;
 import io.undertow.server.handlers.ProxyPeerAddressHandler;
 import io.undertow.server.handlers.proxy.LoadBalancingProxyClient;
