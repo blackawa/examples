@@ -15,6 +15,7 @@ import io.undertow.server.handlers.proxy.ProxyCallback;
 import io.undertow.server.handlers.proxy.ProxyClient;
 import io.undertow.server.handlers.proxy.ProxyConnection;
 import io.undertow.util.AttachmentKey;
+import io.undertow.util.HttpString;
 import org.xnio.IoUtils;
 import org.xnio.OptionMap;
 
@@ -35,6 +36,10 @@ public class ContextPathProxyClient implements ProxyClient {
      * @return プロキシ先
      */
     public ProxyTarget findTarget(HttpServerExchange exchange) {
+        exchange.getRequestHeaders().put(new HttpString(""), "");
+        exchange.getRequestHeaders().get("X-Auth").contains("");
+        exchange.getRequestCookies().get("session").getValue();
+        exchange.getResponseHeaders().remove("");
         URI endpoint = contextPathPredicates.stream()
                 .filter(p -> p.matches(exchange.getRequestURI()))
                 .findFirst()
