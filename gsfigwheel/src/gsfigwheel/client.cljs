@@ -17,8 +17,9 @@
 (when-let [app (js/document.getElementById "app")]
   (accountant/configure-navigation!
    {:nav-handler (fn [path]
-                   (flow/dispatch :handler (get handlers
-                                                (:handler (bidi/match-route routes path)))))
+                   (flow/dispatch :handler
+                                  ;; handler can be null.
+                                  (get handlers (:handler (bidi/match-route routes path)))))
     :path-exists? (fn [path]
                     (boolean (bidi/match-route routes path)))})
   (accountant/dispatch-current!)
