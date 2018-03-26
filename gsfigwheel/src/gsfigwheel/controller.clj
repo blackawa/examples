@@ -1,6 +1,6 @@
 (ns gsfigwheel.controller
   (:require [com.stuartsierra.component :as component]
-            [gsfigwheel.main :as main]
+            [gsfigwheel.view :as view]
             [rum.core :as rum]))
 
 (defn- rum-ok [body]
@@ -10,11 +10,18 @@
 (defrecord HomeController []
   component/Lifecycle
   (start [component]
-    (assoc component :controller (fn [_] (rum-ok (main/+layout (atom {}))))))
+    (assoc component :controller (fn [_]
+                                   (rum-ok (view/+layout (atom {})
+                                                         (rum/render-html
+                                                          (view/+app (atom {:handler view/+home
+                                                                            :count 0}))))))))
   (stop [component] (dissoc component :controller)))
 
 (defrecord AboutController []
   component/Lifecycle
   (start [component]
-    (assoc component :controller (fn [_] (rum-ok (main/+layout (atom {}))))))
+    (assoc component :controller (fn [_]
+                                   (rum-ok (view/+layout (atom {})
+                                                         (rum/render-html
+                                                          (view/+app (atom {:handler view/+about}))))))))
   (stop [component] (dissoc component :controller)))

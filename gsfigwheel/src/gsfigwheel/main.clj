@@ -23,23 +23,6 @@
   (keyword->handler component)
   routes)
 
-(defn +layout [state]
-  [:html
-   [:head [:link {:rel "stylesheet" :href "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"}]]
-   [:body
-    [:section.section
-     [:.container
-      [:#app [:h1.title.is-4 "Change me with your React wrapper!"]]]]
-    [:script {:defer true
-              :src "https://use.fontawesome.com/releases/v5.0.8/js/solid.js"
-              :integrity "sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
-              :crossorigin "anonymous"}]
-    [:script {:defer true
-              :src "https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
-              :integrity "sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
-              :crossorigin "anonymous"}]
-    [:script {:src "/js/example.js"}]]])
-
 (defn system []
   (component/system-map
    :http (component/using (new-jetty :port 3000) [:handler])
