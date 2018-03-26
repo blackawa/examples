@@ -19,7 +19,6 @@
   (accountant/dispatch-current!)
   (add-watch flow/state :handler-readiness
              (fn [k a old new]
-               (println "catch watch")
                (when (boolean (:handler new))
                  (remove-watch flow/state :handler-readiness)
                  (rum/mount (view/+app flow/state) app)))))
