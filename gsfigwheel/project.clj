@@ -14,5 +14,8 @@
                  [bidi "2.1.3"]]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.11"]
                                   [com.stuartsierra/component.repl "0.2.0"]
-                                  [figwheel-sidecar "0.5.15"]]
+                                  [figwheel-sidecar "0.5.15"]
+                                  [com.cemerick/piggieback "0.2.2"]
+                                  [org.clojure/tools.nrepl "0.2.10"]]
+                   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
                    :source-paths ["dev"]}})
