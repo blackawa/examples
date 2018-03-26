@@ -1,12 +1,13 @@
 (ns gsfigwheel.view
   (:require [accountant.core :as accountant]
-            [rum.core :as rum]))
+            [rum.core :as rum]
+            [gsfigwheel.flow :as flow]))
 
 (rum/defc +home < rum/reactive [state]
   [:.content
    [:p "Current state:" (str (rum/react state))]
    [:p "Click count:" (:count (rum/react state))]
-   [:button.button.is-link {:on-click #(swap! state update-in [:count] inc)} "Click me!"]])
+   [:button.button.is-link {:on-click #(flow/dispatch :increment-counter)} "Click me!"]])
 
 (rum/defc +about [state]
   [:.card
