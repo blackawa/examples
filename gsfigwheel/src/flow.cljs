@@ -2,7 +2,7 @@
   (:require [cljs.core.async :as a])
   (:require-macros [cljs.core.async.macros :refer [go go-loop]]))
 
-(defonce state (atom {:count 0}))
+(defonce state (atom {}))
 (defonce actions (a/chan))
 
 (defn dispatch
@@ -15,7 +15,9 @@
 
 (defmethod transform :increment-counter
   [state _value]
-  (update-in state [:count] inc))
+  (if (:count state)
+    (update-in state [:count] inc)
+    (assoc state :count 0)))
 
 (defmethod transform :handler
   [state value]
