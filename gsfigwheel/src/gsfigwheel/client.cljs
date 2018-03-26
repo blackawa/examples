@@ -10,10 +10,14 @@
 
 (println "Hello from cljs!")
 
+(def handlers
+  {:site.home/index +home
+   :site.about/index +about})
+
 (when-let [app (js/document.getElementById "app")]
   (accountant/configure-navigation!
    {:nav-handler (fn [path]
-                   (flow/dispatch :handler (get view/handlers
+                   (flow/dispatch :handler (get handlers
                                                 (:handler (bidi/match-route routes path)))))
     :path-exists? (fn [path]
                     (boolean (bidi/match-route routes path)))})
