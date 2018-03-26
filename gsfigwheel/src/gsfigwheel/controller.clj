@@ -10,18 +10,20 @@
 (defrecord HomeController []
   component/Lifecycle
   (start [component]
-    (assoc component :controller (fn [_]
-                                   (rum-ok (view/+layout (atom {})
-                                                         (rum/render-html
-                                                          (view/+app (atom {:handler view/+home
-                                                                            :count 0}))))))))
+    (assoc component :controller
+           (fn [_]
+             (rum-ok
+              (view/+layout
+               (atom {})
+               (rum/render-html (view/+app (atom {:handler view/+home :count 0}))))))))
   (stop [component] (dissoc component :controller)))
 
 (defrecord AboutController []
   component/Lifecycle
   (start [component]
-    (assoc component :controller (fn [_]
-                                   (rum-ok (view/+layout (atom {})
-                                                         (rum/render-html
-                                                          (view/+app (atom {:handler view/+about}))))))))
+    (assoc component :controller
+           (fn [_]
+             (rum-ok (view/+layout
+                      (atom {})
+                      (rum/render-html (view/+app (atom {:handler view/+about}))))))))
   (stop [component] (dissoc component :controller)))
