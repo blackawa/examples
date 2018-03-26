@@ -11,8 +11,8 @@
 (println "Hello from cljs!")
 
 (def handlers
-  {:site.home/index +home
-   :site.about/index +about})
+  {:site.home/index view/+home
+   :site.about/index view/+about})
 
 (when-let [app (js/document.getElementById "app")]
   (accountant/configure-navigation!
