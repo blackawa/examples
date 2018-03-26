@@ -20,8 +20,7 @@
                    (flow/dispatch :handler
                                   ;; handler can be null.
                                   (get handlers (:handler (bidi/match-route routes path)))))
-    :path-exists? (fn [path]
-                    (boolean (bidi/match-route routes path)))})
+    :path-exists? (fn [path] (boolean (bidi/match-route routes path)))})
   (accountant/dispatch-current!)
   (add-watch flow/state :handler-readiness
              (fn [k a old new]
