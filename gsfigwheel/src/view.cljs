@@ -3,10 +3,10 @@
             [rum.core :as rum]))
 
 (rum/defc +home < rum/reactive [state]
-  [:div
+  [:.content
    [:p "Current state:" (str (rum/react state))]
    [:p "Click count:" (:count (rum/react state))]
-   [:button {:on-click #(swap! state update-in [:count] inc)} "Click me!"]])
+   [:button.button.is-link {:on-click #(swap! state update-in [:count] inc)} "Click me!"]])
 
 (rum/defc +about [state]
   [:.card
