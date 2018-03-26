@@ -7,7 +7,8 @@
             [system.components.handler :refer [new-handler]]
             [system.components.jetty :refer [new-jetty]]
             [system.components.middleware :refer [new-middleware]]
-            [gsfigwheel.router :refer [routes]]))
+            [gsfigwheel.router :refer [routes]])
+  (:import [gsfigwheel.controller HomeController AboutController]))
 
 (defn keyword->handler
   "find ring handler from m(ap) argument."
@@ -21,10 +22,6 @@
 (defn endpoint [component]
   (keyword->handler component)
   routes)
-
-(defn rum-ok [body]
-  (-> {:body (rum/render-static-markup body)}
-      (assoc-in [:headers "Content-Type"] "text/html; charset=utf-8")))
 
 (defn +layout [state]
   [:html
@@ -43,16 +40,11 @@
               :crossorigin "anonymous"}]
     [:script {:src "/js/example.js"}]]])
 
-(defrecord HomeController []
-  component/Lifecycle
-  (start [component]
-    (assoc component :controller (fn [_] (rum-ok (+layout (atom {}))))))
-  (stop [component] (dissoc component :controller)))
-
 (defn system []
   (component/system-map
    :http (component/using (new-jetty :port 3000) [:handler])
    :handler (component/using (new-handler :router :bidi) [:endpoint :middleware])
    :middleware (new-middleware {:middleware [[wrap-defaults site-defaults]]})
-   :endpoint (component/using (new-endpoint endpoint) [:site.home/index])
-   :site.home/index (HomeController.)))
+   :endpoint (component/using (new-endpoint endpoint) [:site.home/index :site.about/index])
+   :site.home/index (HomeController.)
+   :site.about/index (AboutController.)))
