@@ -7,6 +7,8 @@
                  [org.clojure/core.async "0.4.474"]
                  [com.stuartsierra/component "0.3.2"]
                  [org.danielsz/system "0.4.1"]
+                 [ring "1.6.3"]
+                 [ring/ring-defaults "0.3.1"]
                  [org.clojure/clojurescript "1.9.946"]
                  [rum "0.11.2"]
                  [venantius/accountant "0.2.4"

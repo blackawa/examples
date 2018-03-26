@@ -22,10 +22,6 @@
      [:li [:a {:href "/about.html" :on-click #(accountant/navigate! "/about.html")} "About"]]]]
    ((:handler (rum/react state)) state)])
 
-(def routes
-  ["/" {"index.html" :site.home/index
-        "about.html" :site.about/index}])
-
 (def handlers
   {:site.home/index +home
    :site.about/index +about})

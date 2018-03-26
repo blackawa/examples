@@ -3,6 +3,7 @@
             [bidi.bidi :as bidi]
             [rum.core :as rum]
             [gsfigwheel.flow :as flow]
+            [gsfigwheel.router :refer [routes]]
             [gsfigwheel.view :as view]))
 
 (enable-console-print!)
@@ -13,9 +14,9 @@
   (accountant/configure-navigation!
    {:nav-handler (fn [path]
                    (flow/dispatch :handler (get view/handlers
-                                                (:handler (bidi/match-route view/routes path)))))
+                                                (:handler (bidi/match-route routes path)))))
     :path-exists? (fn [path]
-                    (boolean (bidi/match-route view/routes path)))})
+                    (boolean (bidi/match-route routes path)))})
   (accountant/dispatch-current!)
   (add-watch flow/state :handler-readiness
              (fn [k a old new]
