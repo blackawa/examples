@@ -17,7 +17,8 @@
 (def settings
   (clj->js {:data clients
             :colHeaders ["店舗名" "店舗名カナ" "ログインユーザーID" "パスワード" "住所1" "住所2"]
-            :columns [{:data "name"} {:data "name.kana"} {:data "id"} {:data "password"} {:data "address"} {:data "address"}]}))
+            :columns [{:data "name"} {:data "name_kana"} {:data "login_id"}
+                      {:data "password"} {:data "place1"} {:data "place2"}]}))
 
 (when-let [app (js/document.getElementById "app")]
   (js/Handsontable app settings))
