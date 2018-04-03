@@ -1,16 +1,19 @@
 <!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css.map">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/handsontable/0.38.1/handsontable.full.min.css">
   </head>
   <body>
     <nav class="navbar is-dark">
-      <div class="navbar-brand"><a href="/">EXAMPLE</a></div>
+      <div class="navbar-brand"><a class="navbar-item" href="/">EXAMPLE</a></div>
     </nav>
     <section class="section">
-      <h1 class="title">Hello</h1>
-      <div id="app"></div>
+      <div class="container">
+        <h1 class="title">求人情報の一括登録</h1>
+        <div id="app" class="columns"></div>
+        <button class="button is-success">一括登録</button>
+      </div>
     </section>
     <script src="/js/main.js"></script>
   </body>
