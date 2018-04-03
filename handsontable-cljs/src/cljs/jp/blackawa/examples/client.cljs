@@ -1,5 +1,6 @@
 (ns jp.blackawa.examples.client
-  (:require [cljsjs.jquery]))
+  (:require [cljsjs.jquery]
+            [cljsjs.handsontable]))
 
 (enable-console-print!)
 
@@ -18,7 +19,5 @@
             :colHeaders ["店舗名" "店舗名カナ" "ログインユーザーID" "パスワード" "住所1" "住所2"]
             :columns [{:data "name"} {:data "name.kana"} {:data "id"} {:data "password"} {:data "address"} {:data "address"}]}))
 
-(.text (js/$ "h1") "Hello, World!")
-
 (when-let [app (js/document.getElementById "app")]
-  )
+  (js/Handsontable app settings))
