@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Block = (prop) => {
+const Block = () => {
   return (<span className={'block'}>block</span>);
 };
 
