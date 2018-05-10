@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
 if (process.env.NODE_ENV !== 'production') {
     const webpack = require('webpack');
@@ -19,7 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const options = {
     debug: true
-}
+};
 
 const server = require('http').createServer(app);
 app.use(express.static(path.join(__dirname, 'public')));
