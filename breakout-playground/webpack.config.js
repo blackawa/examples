@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: ['src/js/index.js'],
+    entry: ['./src/js/index'],
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js'
@@ -13,10 +13,10 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
+                    loader: 'babel-loader'// ,
+//                     options: {
+//                         presets: ['@babel/preset-env']
+//                     }
                 }
             }
         ]
