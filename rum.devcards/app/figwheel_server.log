@@ -1,0 +1,10 @@
+Compiling build :dev to "resources/public/js/bundle.js" from ["src/cljs"]...
+[32mSuccessfully compiled build :dev to "resources/public/js/bundle.js" in 0.516 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/out/rum/devcards/client.js
+Compiling build :dev to "resources/public/js/bundle.js" from ["src/cljs"]...
+[32mSuccessfully compiled build :dev to "resources/public/js/bundle.js" in 0.588 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/out/rum/devcards/client.js

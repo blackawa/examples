@@ -1,0 +1,12 @@
+{:http-server-root "public"
+ :server-port 3449
+ :open-file-command "emacsclient"
+ :builds [{:id "dev"
+           :source-paths ["src/cljs"]
+           :figwheel {:devcards true}
+           :compiler
+           {:main rum.devcards.card.block
+            :asset-path "js/out"
+            :output-to "resources/public/js/bundle.js"
+            :output-dir "resources/public/js/out"
+            :source-map-timestamp true}}]}
