@@ -14,7 +14,11 @@ module.exports = {
             loader: 'css-loader'
           },
           {
-            loader: 'sass-loader'
+            loader: 'sass-loader',
+            options: {
+              file: '../src/scss/main.scss',
+              includePaths: ['../src/scss']
+            }
           }
         ]
       }
