@@ -22,7 +22,6 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
         use: [
           {
             loader: 'style-loader'
@@ -31,11 +30,7 @@ module.exports = {
             loader: 'css-loader'
           },
           {
-            loader: 'sass-loader',
-            options: {
-              file: 'src/scss/main.scss',
-              includePaths: ['src/scss']
-            }
+            loader: 'sass-loader'
           }
         ]
       }

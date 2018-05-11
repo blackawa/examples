@@ -1,27 +1,6 @@
-const path = require('path');
+const defaultConfig = require('../webpack.config');
 
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        include: path.resolve(__dirname, '../src/scss'),
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              file: '../src/scss/main.scss',
-              includePaths: ['../src/scss']
-            }
-          }
-        ]
-      }
-    ]
-  }
+module.exports = (config) => {
+  config.module.rules = defaultConfig.module.rules;
+  return config;
 };
