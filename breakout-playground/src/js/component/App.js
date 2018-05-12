@@ -1,7 +1,5 @@
 import React from 'react';
 
-const App = () => {
-    return (<div>Hello!</div>);
-};
+const App = (prop) => (<div className={'block'}>{prop.children}</div>);
 
 export default App;
