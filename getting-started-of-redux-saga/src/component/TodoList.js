@@ -1,11 +1,12 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import Todo from './Todo';
 
-const TodoList = (prop) => {
+const TodoList = (props) => {
   const todos = [];
-  for (const todo in prop.todos) {
-    todos.push(<Todo todo={todo}/>);
+  for (const i in props.todos) {
+    todos.push(<Todo key={i} todo={props.todos[i]}/>);
   }
 
   return (
@@ -13,4 +14,4 @@ const TodoList = (prop) => {
   );
 };
 
-export default TodoList;
+export default connect(state => state)(TodoList);
