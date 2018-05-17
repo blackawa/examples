@@ -18,6 +18,7 @@ class App extends React.Component {
   render() {
     return (
         <div>
+          <h2>Bidirectional Data Binding Example</h2>
           <TextField value={this.state.text} onChange={this.onTextChange.bind(this)}/>
           <PreviewField text={this.state.text}/>
         </div>
