@@ -1,8 +1,9 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
-  entry: ['./src/index.js'],
+  entry: ['webpack-hot-middleware/client', './src/index.js'],
   output: {
     path: path.resolve(__dirname, 'public', 'js'),
     filename: 'bundle.js',
@@ -21,5 +22,13 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  devServer: {
+    contentBase: path.resolve(path.join(__dirname, 'public')),
+    port: 3000,
+  },
+  devtool: 'cheap-module-eval-source-map',
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ]
 };

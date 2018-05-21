@@ -1,7 +1,6 @@
 /*eslint-env node*/
 const express = require('express');
 const path = require('path');
-//const peer = require('./server')
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -18,10 +17,6 @@ if (process.env.NODE_ENV !== 'production') {
     publicPath: config.output.publicPath
   }))
 }
-
-const options = {
-  debug: true
-};
 
 const server = require('http').createServer(app);
 //app.use('/peerjs', peer.ExpressPeerServer(server, options))

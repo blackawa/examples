@@ -8,7 +8,7 @@ const Page1 = () => <div>
       <li><a>Page 2</a></li>
     </ul>
   </div>
-  <div className='content'>This is Page1!</div>
+  <div className='content'>This is Page1.</div>
 </div>;
 
 const Page2 = () => <div>
