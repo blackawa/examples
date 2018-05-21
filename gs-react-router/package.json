@@ -19,7 +19,8 @@
     "webpack-hot-middleware": "^2.22.2"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "webpack"
   },
   "devDependencies": {}
 }

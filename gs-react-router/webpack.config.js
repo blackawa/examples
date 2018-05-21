@@ -5,7 +5,7 @@ module.exports = {
   mode: 'development',
   entry: ['webpack-hot-middleware/client', './src/index.js'],
   output: {
-    path: path.resolve(__dirname, 'public', 'js'),
+    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
     publicPath: 'public'
   },
