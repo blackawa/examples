@@ -18,8 +18,8 @@ export const receiveRepositories = (repositories) => {
 };
 
 export const fetchRepositories = (query) => {
-  console.log('request');
   return (dispatch) => {
+    dispatch(submitQuery());
     const requestUrl = new URI('https://api.github.com/search/repositories')
         .query({q: query});
     return fetch(requestUrl)

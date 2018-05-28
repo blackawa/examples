@@ -3,17 +3,19 @@ import {connect} from 'react-redux';
 import {changeQuery, fetchRepositories} from "../actions";
 import Search from "./presentations/templates/Search";
 
-const App = ({onChangeQuery, onSubmitQuery, repositories, query}) => {
+const App = ({onChangeQuery, onSubmitQuery, repositories, query, processing}) => {
   return <Search repositories={repositories}
                  onChangeQuery={onChangeQuery}
                  onSubmitQuery={onSubmitQuery}
-                 query={query}/>
+                 query={query}
+                 processing={processing}/>
 };
 
 const mapStateToProps = (state) => {
   return {
     repositories: state.repositories,
     query: state.query,
+    processing: state.processing,
   }
 };
 
