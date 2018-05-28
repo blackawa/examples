@@ -13,9 +13,9 @@ const TableCell = ({children}) => <td style={tableCellStyle}>{children}</td>;
 const TableHeaderCell = ({children}) => <th style={tableCellStyle}>{children}</th>;
 
 const SearchResult = ({repositories}) => {
-  const repositoryRows = repositories ? repositories.map(r => <tr>
-    <TableCell>{r.name}</TableCell>
-    <TableCell>{r.url}</TableCell>
+  const repositoryRows = repositories && repositories.items ? repositories.items.map(item => <tr>
+    <TableCell>{item.name}</TableCell>
+    <TableCell>{item.url}</TableCell>
   </tr>) : null;
 
   const style = {border: `solid 1px ${borderColor}`, borderCollapse: 'collapse'};
