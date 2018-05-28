@@ -5,6 +5,9 @@ const style = {
   padding: '.25rem',
 };
 
-const TextField = ({placeholder, value, onChange}) => <input style={style} type='text' placeholder={placeholder} value={value || ''} onChange={onChange}/>;
+const TextField = ({placeholder, value, onChange}) => {
+  return <input style={style} type='text' placeholder={placeholder}
+         value={value || ''} onChange={(e) => onChange(e.target.value)}/>
+};
 
 export default TextField;
