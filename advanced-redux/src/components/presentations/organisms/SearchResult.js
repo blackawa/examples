@@ -1,25 +1,30 @@
 import React from 'react';
 
+const borderColor = '#aaa';
+
+const tableCellStyle = {
+  fontSize: '.9rem',
+  border: `solid 1px ${borderColor}`,
+  padding: '0.25rem',
+};
+
+const TableCell = ({children}) => <td style={tableCellStyle}>{children}</td>;
+
+const TableHeaderCell = ({children}) => <th style={tableCellStyle}>{children}</th>;
+
 const SearchResult = ({repositories}) => {
-
-  const borderColor = '#aaa';
-
-  const tableCellStyle = {
-    fontSize: '.9rem',
-    border: `solid 1px ${borderColor}`,
-    padding: '0.25rem',
-  };
-
   const repositoryRows = repositories ? repositories.map(r => <tr>
-    <td style={tableCellStyle}>{r.name}</td>
-    <td style={tableCellStyle}>{r.url}</td>
+    <TableCell>{r.name}</TableCell>
+    <TableCell>{r.url}</TableCell>
   </tr>) : null;
 
-  return <table style={{border: `solid 1px ${borderColor}`, borderCollapse: 'collapse'}}>
+  const style = {border: `solid 1px ${borderColor}`, borderCollapse: 'collapse'};
+
+  return <table style={style}>
     <thead>
     <tr>
-      <th style={tableCellStyle}>Name</th>
-      <th style={tableCellStyle}>URL</th>
+      <TableHeaderCell>Name</TableHeaderCell>
+      <TableHeaderCell>URL</TableHeaderCell>
     </tr>
     </thead>
     <tbody>
