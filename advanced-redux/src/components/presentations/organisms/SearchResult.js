@@ -13,7 +13,7 @@ const TableCell = ({children}) => <td style={tableCellStyle}>{children}</td>;
 const TableHeaderCell = ({children}) => <th style={tableCellStyle}>{children}</th>;
 
 const SearchResult = ({repositories}) => {
-  const repositoryRows = repositories && repositories.items ? repositories.items.map(item => <tr>
+  const repositoryRows = repositories && repositories.items ? repositories.items.map(item => <tr key={item.id}>
     <TableCell>{item.name}</TableCell>
     <TableCell>{item.url}</TableCell>
   </tr>) : null;
