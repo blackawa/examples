@@ -1,9 +1,9 @@
 import React from 'react';
 import SingleTextForm from "../molecules/SingleTextForm";
 
-const SearchForm = ({}) => <div>
+const SearchForm = ({onSubmit}) => <div>
   <h1>リポジトリを探す:</h1>
-  <SingleTextForm/>
+  <SingleTextForm onSubmit={onSubmit}/>
 </div>;
 
 export default SearchForm;
