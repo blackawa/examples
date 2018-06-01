@@ -1,14 +1,31 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import TextField from './TextField';
+import PreviewField from './PreviewField';
+import {changeText} from '../action';
 
-import Preview from './Preview';
-import TextBox from './TextBox';
-
-const App = () => {
+const App = ({text, onTextChange}) => {
   return (
       <div>
-        <TextBox/>
-        <Preview/>
-      </div>);
+        <h2>Bidirectional Data Binding Example</h2>
+        <TextField value={text} onChange={onTextChange}/>
+        <PreviewField text={text}/>
+      </div>
+  )
 };
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    text: state.text
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onTextChange: e => {
+      dispatch(changeText(e))
+    }
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
