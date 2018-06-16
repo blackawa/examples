@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {push} from 'react-router-redux';
+import {goToChildren} from "../actions";
 
 const mapStateToProps = (state) => {
   return {state}
@@ -9,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    goToChildren: e => dispatch(push('/children'))
+    goToChildren: e => dispatch(goToChildren())
   };
 };
 
