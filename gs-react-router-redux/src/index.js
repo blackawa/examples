@@ -1,33 +1,22 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {createStore, applyMiddleware, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
-import {createBrowserHistory} from 'history';
-import {routerMiddleware, ConnectedRouter, routerReducer} from 'react-router-redux';
-import createSagaMiddleware from 'redux-saga';
+import {ConnectedRouter} from 'react-router-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 import App from './components/App';
-import reducer from './reducers';
 import saga from './sagas';
+import store, {runSaga, persistor, browserHistory} from './store';
 
-const browserHistory = createBrowserHistory();
-const sagaMiddleware = createSagaMiddleware();
-const store = createStore(
-    combineReducers({reducer, router: routerReducer}),
-    applyMiddleware(
-        sagaMiddleware,
-        routerMiddleware(browserHistory)
-    )
-);
-sagaMiddleware.run(saga);
+runSaga(saga);
 
 render(
     <Provider store={store}>
-      <ConnectedRouter history={browserHistory}>
-        <BrowserRouter>
+      <PersistGate loading={null} persistor={persistor}>
+        <ConnectedRouter history={browserHistory}>
           <App/>
-        </BrowserRouter>
-      </ConnectedRouter>
+        </ConnectedRouter>
+      </PersistGate>
     </Provider>,
     document.getElementById('app')
 );
