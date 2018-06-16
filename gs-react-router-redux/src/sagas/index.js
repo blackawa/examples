@@ -1,5 +1,5 @@
 import {put} from 'redux-saga/effects';
-import {push} from 'connected-react-router';
+import {push} from 'react-router-redux';
 
 function* goToChildren(action) {
   yield put(push('/children'));

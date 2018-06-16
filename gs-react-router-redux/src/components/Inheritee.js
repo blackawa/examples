@@ -1,9 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {push} from 'connected-react-router';
+import {push} from 'react-router-redux';
 import {withRouter} from 'react-router-dom';
-import {goToChildren} from "../actions";
 
 const mapStateToProps = (state) => {
   return {state}
