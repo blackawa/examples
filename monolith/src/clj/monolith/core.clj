@@ -1,4 +1,5 @@
 (ns monolith.core
+  (:gen-class)
   (:require [aero.core :as aero]
             [clojure.java.io :as io]
             [integrant.core :as ig]))
