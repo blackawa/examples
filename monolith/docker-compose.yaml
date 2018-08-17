@@ -1,0 +1,11 @@
+version: '3'
+services:
+  db:
+    image: 'postgres:10.1'
+    container_name: so-zo-ku-com-core-api-db
+    ports:
+      - '5433:5432'
+    environment:
+      POSTGRES_PASSWORD: 'p@ssw0rd'
+      POSTGRES_USER: 'monolith'
+      POSTGRES_DB: 'monolith'

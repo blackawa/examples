@@ -1,1 +1,31 @@
-{}
+{:monolith.component/http {:handler #ig/ref :monolith.component/endpoint
+                           :port #long #or [#env PORT 3000]}
+ :monolith.component/routes ["" [["/" :monolith.handler.top/index]
+                                 ["/api"
+                                  [["/dogs"
+                                    [[:get :monolith.handler.api.dog/index]]]]]
+                                 [true :monolith.handler.not-found/index]]]
+ :monolith.component/logger {:level #profile {:default :info
+                                              :dev :debug}}
+ :monolith.component/endpoint {:middleware #ig/ref :monolith.component/middleware
+                               :routes #ig/ref :monolith.component/routes
+                               :handlers {:monolith.handler.top/index #ig/ref :monolith.handler.top/index
+                                          :monolith.handler.api.dog/index #ig/ref :monolith.handler.api.dog/index
+                                          :monolith.handler.not-found/index #ig/ref :monolith.handler.not-found/index}}
+ :monolith.component/middleware {:logger #ig/ref :monolith.component/logger
+                                 :dev? #profile {:default false
+                                                 :dev true}}
+ :monolith.handler.top/index {}
+ :monolith.handler.api.dog/index {}
+ :monolith.handler.not-found/index {}
+
+ :duct.database.sql/hikaricp {:jdbc-url #or [#env JDBC_URL "jdbc:postgresql://127.0.0.1:5433/monolith"]
+                              :username #or [#env USERNAME "monolith"]
+                              :password #or [#env PASSWORD "p@ssw0rd"]
+                              :stringtype "unspecified"}
+ :duct.migrator/ragtime {:database #ig/ref :duct.database.sql/hikaricp
+                         :strategy #profile {:default :raise-error
+                                             :dev :rebase}
+                         :migrations [#ig/ref :monolith.migration/create-dogs]}
+ [:duct.migrator.ragtime/sql :monolith.migration/create-dogs]
+ #migration ["migrations/create_dogs"]}
