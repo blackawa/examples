@@ -28,4 +28,10 @@
                                              :dev :rebase}
                          :migrations [#ig/ref :monolith.migration/create-dogs]}
  [:duct.migrator.ragtime/sql :monolith.migration/create-dogs]
- #migration ["migrations/create_dogs"]}
+ #migration ["migrations/create_dogs"]
+
+ :duct.compiler/cljs
+ {:builds [{:source-paths  ["src/cljc" "src/cljs"]
+            :build-options {:output-to "resources/public/js/main.js"
+                            :output-dir "resources/public/js/out"
+                            :optimizations :whitespace}}]}}

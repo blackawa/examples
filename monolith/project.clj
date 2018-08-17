@@ -29,6 +29,7 @@
                  [cljs-http "0.1.45"]
                  [com.taoensso/timbre "4.10.0"]
                  [com.cemerick/url "0.1.1"]
+                 [duct/compiler.cljs "0.2.0"]
                  [rum "0.11.2"]
                  [venantius/accountant "0.2.4"
                   :exclusions [org.clojure/tools.reader]]]
