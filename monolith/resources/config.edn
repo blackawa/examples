@@ -16,7 +16,7 @@
                                  :dev? #profile {:default false
                                                  :dev true}}
  :monolith.handler.top/index {}
- :monolith.handler.api.dog/index {}
+ :monolith.handler.api.dog/index {:db #ig/ref :duct.database.sql/hikaricp}
  :monolith.handler.not-found/index {}
 
  :duct.database.sql/hikaricp {:jdbc-url #or [#env JDBC_URL "jdbc:postgresql://127.0.0.1:5433/monolith"]
