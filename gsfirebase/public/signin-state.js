@@ -12,17 +12,22 @@ initApp = function() {
             user.getIdToken().then(function(accessToken) {
                 document.getElementById('sign-in-status').textContent = 'Signed in';
                 var signIn = document.getElementById('sign-in');
-                signIn.textContent = 'Sign out';
-                document.getElementById('account-details').textContent = JSON.stringify({
-                    displayName: displayName,
-                    email: email,
-                    emailVerified: emailVerified,
-                    phoneNumber: phoneNumber,
-                    photoURL: photoURL,
-                    uid: uid,
-                    accessToken: accessToken,
-                    providerData: providerData
-                }, null, '  ');
+                if (signIn != null) {
+                    signIn.textContent = 'Sign out';
+                }
+                var accountDetails = document.getElementById('account-details');
+                if (accountDetails != null) {
+                    accountDetails.textContent = JSON.stringify({
+                        displayName: displayName,
+                        email: email,
+                        emailVerified: emailVerified,
+                        phoneNumber: phoneNumber,
+                        photoURL: photoURL,
+                        uid: uid,
+                        accessToken: accessToken,
+                        providerData: providerData
+                    }, null, '  ');
+                }
             });
         } else {
             // User is signed out.
