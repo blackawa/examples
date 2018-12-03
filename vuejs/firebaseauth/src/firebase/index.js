@@ -13,11 +13,7 @@ if (!firebase.apps.length) {
 
 export function auth() {
   return new Promise((resolve) => {
-    // eslint-disable-next-line
-    console.log('waiting for auth state change')
     firebase.auth().onAuthStateChanged((user) => {
-      // eslint-disable-next-line
-      console.log('detect auth state change!!!')
       resolve(user || false)
     })
   })
