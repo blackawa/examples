@@ -21,7 +21,7 @@
     "koa-connect": "^2.0.1",
     "radium": "^0.24.0",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2",
+    "react-dom": "^16.4.2",
     "react-final-form": "^3.5.1",
     "react-hot-loader": "^4.2.0",
     "react-redux": "^5.0.7",
