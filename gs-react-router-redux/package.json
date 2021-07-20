@@ -33,7 +33,7 @@
     "redux-persist": "^5.9.1",
     "redux-saga": "^0.16.0",
     "style-loader": "^0.21.0",
-    "urijs": "^1.19.1",
+    "urijs": "^1.19.7",
     "uuid": "^3.2.1",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3",
